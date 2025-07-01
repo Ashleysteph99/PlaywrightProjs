@@ -1,6 +1,6 @@
-const {test} = require('@playwright/test');
+const { test } = require('@playwright/test');
 
-test('Test case 1', async function() {
+test('Test case 1', async () => {
 
     await open('');
 });
