@@ -14,7 +14,7 @@ test('Check if title and URL is proper', async ({ page }) => {
 
 });
 
-test('Check if fields are present and editable', async ({ page }) => {
+test('Check if correct error message is shown on incorrect mail and email', async ({ page }) => {
     await page.goto(url, { waitUntil: 'domcontentloaded' });
     const usrnamefield = await page.locator('#username');
     const usrpwdfield = await page.locator('#password');
