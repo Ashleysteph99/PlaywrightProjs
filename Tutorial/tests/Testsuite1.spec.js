@@ -38,7 +38,8 @@ test('Check if correct error message is shown on incorrect mail and email', asyn
 });
 
 test('Login success on adding correct credentials and homepage should be loaded', async ({ page }) => {
-    login(page);
+
+    await login(page, url);
     await page.locator(".navbar-brand").nth(0).waitFor();
     console.log(await page.url());
 

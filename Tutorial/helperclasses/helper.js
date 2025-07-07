@@ -1,4 +1,4 @@
-async function login(page) {
+async function login(page, url) {
     await page.goto(url, { waitUntil: 'domcontentloaded' });
     const usrnamefield = await page.locator('#username');
     const usrpwdfield = await page.locator('#password');
