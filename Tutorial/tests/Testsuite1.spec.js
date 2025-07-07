@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-const { sign } = require('crypto');
+const { login } = require('../helperclasses/helper.js');
 
 const url = "https://rahulshettyacademy.com/loginpagePractise/";
 
@@ -32,9 +32,18 @@ test('Check if correct error message is shown on incorrect mail and email', asyn
     await adminchckbox.click();
     await checkbox.click();
     await signinbtn.click();
-
     await expect(await page.locator('.alert.alert-danger')).toHaveText("Incorrect username/password.");
     console.log((await page.locator('.alert.alert-danger').textContent() || '').trim().replace(/\s+/g, ' '));
+
+});
+
+test('Login success on adding correct credentials and homepage should be loaded', async ({ page }) => {
+    login(page);
+    await page.locator(".navbar-brand").nth(0).waitFor();
+    console.log(await page.url());
+
+    const names = await page.locator(".card-body a").allTextContents();
+    console.log(names);
 
 
 });
