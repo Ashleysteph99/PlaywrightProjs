@@ -41,10 +41,19 @@ test('Login success on adding correct credentials and homepage should be loaded'
 
     await login(page, url);
     await page.locator(".navbar-brand").nth(0).waitFor();
-    console.log(await page.url());
+    console.log(page.url());
 
     const names = await page.locator(".card-body a").allTextContents();
     console.log(names);
 
+
+});
+
+test.only('Check if dropdown is clickable or not', async ({ page }) => {
+    await page.goto(url);
+    const dropdown = page.locator('select.form-control');
+    await dropdown.selectOption("Consultant");
+    await page.locator('.checkmark').last().click();
+    await page.pause();
 
 });
